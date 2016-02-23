@@ -6,7 +6,7 @@ body{
     background-color: #3b5998; /*#ff9400; */
     margin-top: 0;
     padding: 20px 20px 20px 40px;
-    width:980px;
+    width:80%;
     margin:auto;
 }
 
@@ -19,7 +19,7 @@ body{
 .content {
     clear:both;
     margin-left: 40px;
-    width:980px;
+    width:80%;
     margin:auto;
     border: 2px solid #3b5998;
     background-color: white;
@@ -52,7 +52,7 @@ h1, h2, h3, h4 {
 .post {
     margin-bottom: 70px;
     margin-top: 70px;
-    width: 770px;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
     border: 1px solid #3b5998;
@@ -68,10 +68,11 @@ h1, h2, h3, h4 {
     clear:both;
     background-color:#3b5998;
     margin:auto;
-    width:980px;
+    width:80%;
     height:50px;
     margin-bottom:0px;
     padding: 20px 20px 20px 40px;
+    color:white;
 }
 
 .btn {
@@ -85,9 +86,7 @@ h1, h2, h3, h4 {
 
 .comment {
     margin: 20px 0px 20px 20px;
-    border: 1px solid #3b5998;
-    padding: 5px;
-    border-radius:5px;
+
 }
 
 /*.edit-button btn

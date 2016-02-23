@@ -12,6 +12,7 @@
             <div class="page-header">
                 {% if user.is_authenticated %}
                     <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+                    <a href="{% url 'post_draft_list' %}" class="top-menu"><span class="glyphicon glyphicon-edit"></span></a>
                 {% endif %}
                 <h1><a href="/">Isa's Blog</a></h1>
             </div>
@@ -33,7 +34,7 @@
                 </div>
             </div>
             <div class="footer">
-                <strong>Copyright 2016 - Isa Inalcik</strong>
+                <strong>© Copyright 2016 - Isa Inalcik</strong>
             </div>
         </div>
         </div>
