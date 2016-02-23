@@ -6,16 +6,19 @@
             <div class="date">
                 {{ post.published_date }}
             </div>
+        {% else %}
+                <a class="btn btn-primary btn-primary" href="{% url 'blog.views.post_publish' pk=post.pk %}">Publish</a>
         {% endif %}
         {% if user.is_authenticated %}
             <div class="edit-button">
              <a class="btn btn-primary btn-primary" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+             <a class="btn btn-primary btn-primary" href="{% url 'post_remove' pk=post.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
             </div>
         {% endif %}
         <h1>{{ post.title }}</h1>
         <p>{{ post.text|linebreaks }}</p>
         <hr>
-
+        <h3>Comments:</h3><br>
         {% for comment in post.comments.all %}
             {% if user.is_authenticated or comment.approved_comment %}
             <div class="comment">
@@ -26,7 +29,7 @@
                         <a class="btn btn-primary btn-primary" href="{% url 'comment_approve' pk=comment.pk %}"><span class="glyphicon glyphicon-ok"></span></a>
                     {% endif %}
                 </div>
-                <strong>{{ comment.author }}</strong>
+                <h4>Author: {{ comment.author }}</h4>
                 <p>{{ comment.text|linebreaks }}</p>
             </div>
             {% endif %}
