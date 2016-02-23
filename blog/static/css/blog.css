@@ -64,3 +64,26 @@ h1, h2, h3, h4 {
     margin-bottom:0px;
     padding: 20px 20px 20px 40px;
 }
+
+.btn {
+    width:50px;
+    height:20px;
+    float:right;
+    margin-right:10px;
+    margin-top:0px;
+    margin-bottom:5px;
+    padding:0px;
+
+
+}
+
+/*.edit-button btn
+{
+    width:60px;
+    height:30px;
+    float:right;
+    margin-right:10px;
+    margin-top:0px;
+    margin-bottom:5px;
+    padding:0px;
+} */
