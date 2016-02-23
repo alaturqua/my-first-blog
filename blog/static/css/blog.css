@@ -1,5 +1,9 @@
+body{
+    background-color:black;
+}
+
 .page-header {
-    background-color: #ff9400;
+    background-color: #3b5998; /*#ff9400; */
     margin-top: 0;
     padding: 20px 20px 20px 40px;
     width:980px;
@@ -17,7 +21,8 @@
     margin-left: 40px;
     width:980px;
     margin:auto;
-    border: 2px solid #ff9400;
+    border: 2px solid #3b5998;
+    background-color: white;
 }
 
 h1, h2, h3, h4 {
@@ -46,9 +51,13 @@ h1, h2, h3, h4 {
 
 .post {
     margin-bottom: 70px;
+    margin-top: 70px;
     width: 770px;
     margin-left: auto;
     margin-right: auto;
+    border: 1px solid #3b5998;
+    padding: 30px 30px 70px 30px;
+    border-radius:5px;
 }
 
 .post h1 a, .post h1 a:visited {
@@ -57,7 +66,7 @@ h1, h2, h3, h4 {
 
 .footer {
     clear:both;
-    background-color:#ff9400;
+    background-color:#3b5998;
     margin:auto;
     width:980px;
     height:50px;
@@ -66,15 +75,19 @@ h1, h2, h3, h4 {
 }
 
 .btn {
-    width:50px;
-    height:20px;
+
     float:right;
     margin-right:10px;
     margin-top:0px;
     margin-bottom:5px;
-    padding:0px;
+    padding:5px;
+}
 
-
+.comment {
+    margin: 20px 0px 20px 20px;
+    border: 1px solid #3b5998;
+    padding: 5px;
+    border-radius:5px;
 }
 
 /*.edit-button btn
