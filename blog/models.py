@@ -1,10 +1,12 @@
 from django.db import models
 from django.utils import timezone
+from django.core.urlresolvers import reverse
 
 
 class Post(models.Model):
     author = models.ForeignKey('auth.User')
     title = models.CharField(max_length=200)
+    image = models.FileField(null=True, blank=True)
     text = models.TextField()
     created_date = models.DateTimeField(
         default=timezone.now)

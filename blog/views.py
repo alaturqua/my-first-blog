@@ -4,11 +4,30 @@ from .models import Post
 from .forms import PostForm, CommentForm, Comment
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 def post_list(request):
-    posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
-    return render(request, 'blog/post_list.html', {'posts': posts})
+    posta_list = Post.objects.filter(published_date__lte=timezone.now()).order_by('-published_date')
+    paginator = Paginator(posta_list, 5) # Show 25 contacts per page
+    page_request_var = 'page'
+    page = request.GET.get(page_request_var)
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        posts = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        posts = paginator.page(paginator.num_pages)
+
+    context = {
+        'posts': posts,
+        'title': 'List',
+        'page_request_var': page_request_var
+    }
+
+    return render(request, 'blog/post_list.html', context)
 
 
 def post_detail(request, pk):
@@ -18,7 +37,7 @@ def post_detail(request, pk):
 @login_required
 def post_new(request):
     if request.method == "POST":
-        form = PostForm(request.POST)
+        form = PostForm(request.POST or None, request.FILES or None)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
@@ -33,7 +52,7 @@ def post_new(request):
 def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
     if request.method == "POST":
-        form = PostForm(request.POST, instance=post)
+        form = PostForm(request.POST or None, request.FILES or None, instance=post)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
@@ -93,3 +112,8 @@ def post_remove(request, pk):
     post = get_object_or_404(Post, pk=pk)
     post.delete()
     return redirect('blog.views.post_list')
+
+
+def listing(request):
+    post_list = Post.objects.all()
+
